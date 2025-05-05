@@ -6,7 +6,7 @@ eureka:
     hostname: localhost
   client:
     fetchRegistry: false  # only server's clients should fetch rigistry data
-    registryWithEureka: false # eurka server shouldn't register itself
+    registerWithEureka: false # eurka server shouldn't register itself
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
       
