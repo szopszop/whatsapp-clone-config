@@ -13,14 +13,13 @@ spring:
         format_sql: true
   cloud:
     discovery:
-      enabled: false # Wyłączamy Discovery Client, gdy uruchamiamy lokalnie bez Eureka
+      enabled: false 
   eureka:
     client:
-      enabled: false # Wyłączamy rejestrację w Eureka i pobieranie rejestru
+      enabled: false 
       fetchRegistry: false
       registerWithEureka: false
 
-# Opcjonalnie: Ustawienia dla Actuatora i informacji o aplikacji dla profilu 'dev'
 management:
   endpoints:
     web:
