@@ -1,0 +1,44 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5430/${USER_SERVICE_DB_NAME}
+    username: ${POSTGRES_USERNAME}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  cloud:
+    discovery:
+      enabled: false # Wyłączamy Discovery Client, gdy uruchamiamy lokalnie bez Eureka
+  eureka:
+    client:
+      enabled: false # Wyłączamy rejestrację w Eureka i pobieranie rejestru
+      fetchRegistry: false
+      registerWithEureka: false
+
+# Opcjonalnie: Ustawienia dla Actuatora i informacji o aplikacji dla profilu 'dev'
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,info,httptrace,prometheus"
+  metrics:
+    tags:
+      application: ${spring.application.name}-dev
+
+info:
+  app:
+    name: "user-service-dev"
+    description: "User service app (Local Development Profile)"
+    version: "1.0.0-DEV"
+
+logging:
+  level:
+    tracz:
+      userservice: debug
+    org:
+      springframework: debug 
